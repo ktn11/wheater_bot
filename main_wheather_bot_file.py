@@ -15,11 +15,13 @@ async def on_startup(_):
 async def start_command(message: types.Message):
     await message.reply('Привет! Напиши мне название города и я пришлю тебе прогноз погоды!'
                         '\nДля дополнительной информации вызови команду /help')
+    await message.delete()
 
 @dp.message_handler(commands=["help"])
 async def help_command(message: types.Message):
     await message.reply('Бот сообщает данные о погоде в городе!'
                         '\nНазвание города должно быть написано на английском или русском языках.')
+    await message.delete()
 
 @dp.message_handler()
 async def get_weather(message: types.Message):
